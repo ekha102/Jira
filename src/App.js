@@ -1,28 +1,26 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import './App.css';
-import Layout from './Inventory/Components/Layout';
-import Home from './Inventory/Components/Home/Home';
-import DetailItem from './Inventory/Components/ViewAlert/DetailItem/DetailItem';
-import CheckInLayout from './Inventory/Components/CheckIn/CheckInLayout';
-import CheckOutLayout from './Inventory/Components/CheckOut/CheckOutLayout';
-import ViewAlertItem from './Inventory/Components/ViewAlert/ViewAlertItem';
+
+import Layout from './Components/Layout';
+import HomeJira from './Components/Home/HomeJira';
+import EditedIssue from './Components/EditedIssue/EditedIssue';
+import CreateJira from './Components/CreateJira/CreateJira';
+import Backlog from './Components/Backlog/Backlog';
 
 
 function App() {
   return (
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Layout/>}>
-            <Route index element={<Home/>}/>
-            <Route path="view-alert" element={<ViewAlertItem/>} />
-            <Route path="view-alert/:itemId" element={<DetailItem/>} />
-            <Route path="check-in" element={<CheckInLayout/>} />
-            <Route path="check-out" element={<CheckOutLayout/>} />
-            {/* <Route path="movies/:movieId" element={<Details />}/> */}
-          </Route>
-        
-        </Routes>      
-      </BrowserRouter>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<HomeJira />} />
+          <Route path="create" element={<CreateJira />} />
+          <Route path="edit/:issueId" element={<EditedIssue />} />
+          <Route path="backlog" element={<Backlog />} />
+        </Route>
+      </Routes>
+
+    </BrowserRouter>
 
   );
 }
